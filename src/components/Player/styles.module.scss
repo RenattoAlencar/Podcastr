@@ -107,7 +107,7 @@
     }
 
     &:hover:not(:disabled) {
-      filter: brightness(0.8);
+      filter: brightness(0.7);
     }
 
     &.playButton {
@@ -116,7 +116,7 @@
       border-radius: 1rem;
       background: var(--purple-400);
 
-      &:hover {
+      &:hover:not(:disabled) {
         filter: brightness(0.95);
       }
     }

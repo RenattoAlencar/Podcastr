@@ -138,7 +138,7 @@ export const getStaticProps: GetStaticProps = async () => {
       }),
       durationAsString: convertDurationToTimeString(Number(episode.file.duration)),
       duration: Number(episode.file.duration),
-      url: episode.file.duration
+      url: episode.file.url
     }
   })
 
