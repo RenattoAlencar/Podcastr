@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { format, parseISO } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
 import { convertDurationToTimeString } from '../../utils/convertDurationToTimeString'
+import { usePlayer } from '../../contexts/PlayerContext'
 
 import api from '../../services/api'
 
@@ -26,6 +27,7 @@ type EpisodeProps = {
 }
 
 export default function Episode({ episode }: EpisodeProps) {
+  const { play } = usePlayer()
   return (
     <div className={styles.episode}>
       <div className={styles.thumbnailContainer}>
@@ -40,7 +42,7 @@ export default function Episode({ episode }: EpisodeProps) {
           src={episode.thumbnail}
           objectFit="cover"
         />
-        <button type="button" >
+        <button type="button" onClick={() => play(episode)}>
           <img src="/play.svg" alt="Tocar Episodio" />
         </button>
       </div>
@@ -95,7 +97,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     durationAsString: convertDurationToTimeString(Number(data.file.duration)),
     description: data.description,
     duration: Number(data.file.duration),
-    url: data.file.duration
+    url: data.file.url
   }
 
   return {
