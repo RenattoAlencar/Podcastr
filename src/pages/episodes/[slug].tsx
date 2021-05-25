@@ -1,5 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Image from 'next/image'
+import Heade from 'next/head'
 import Link from 'next/link'
 import { format, parseISO } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
@@ -30,6 +31,9 @@ export default function Episode({ episode }: EpisodeProps) {
   const { play } = usePlayer()
   return (
     <div className={styles.episode}>
+      <Heade>
+        <title> {episode.title} | Podcastr</title>
+      </Heade>
       <div className={styles.thumbnailContainer}>
         <Link href="/" >
           <button type="button">
