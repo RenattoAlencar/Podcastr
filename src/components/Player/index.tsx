@@ -1,11 +1,13 @@
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import { usePlayer } from '../../contexts/PlayerContext'
+
 import Slider from 'rc-slider'
 import 'rc-slider/assets/index.css'
 
-import styles from './styles.module.scss'
 import { convertDurationToTimeString } from '../../utils/convertDurationToTimeString'
+
+import styles from './styles.module.scss'
 
 export function Player() {
   const audioRef = useRef<HTMLAudioElement>(null)
